@@ -5,7 +5,6 @@ import { Loader } from "@googlemaps/js-api-loader";
 const GOOGLE_MAPS_API_KEY = "AIzaSyDlAU1G9yivtZKRC_s2HJ5KPfTrB93lPEk";
 
 type GoogleMapProps = google.maps.Map | null;
-type GoogleMarkerProps = google.maps.Marker | null;
 type GoogleInfoWindowProps = google.maps.InfoWindow | null;
 
 type PlaceType = {
@@ -96,10 +95,8 @@ export default function GoogleMap() {
       marker = existing.marker ?? null;
     }
   
-    // Open info window even if marker is already present
     showInfoWindow(marker, place, funFact);
   
-    // Recenter the map
     map.setCenter(place.geometry.location);
     map.setZoom(14);
   };
@@ -241,7 +238,6 @@ export default function GoogleMap() {
         )}
       </div>
 
-      {/* Map */}
       <div className="w-2/3">
         <input
           style={{
